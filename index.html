@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#04060d" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2304060d'/%3E%3Cpath d='m32 12 4.8 15.2L52 32l-15.2 4.8L32 52l-4.8-15.2L12 32l15.2-4.8Z' fill='%23e9c77e'/%3E%3C/svg%3E"
+    />
+    <meta
+      name="description"
+      content="写给闺蜜高钰轩的 22 岁生日信。愿新一岁的你，自由、尽兴、被爱包围。"
+    />
+    <title>高钰轩的 22 岁生日信</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="experience" data-scene="0">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="atmosphere" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="site-header">
+        <button class="wordmark" type="button" data-jump="0" aria-label="回到开头">
+          <span class="wordmark-star" aria-hidden="true">✦</span>
+          <span>一封生日信</span>
+        </button>
+        <div class="header-tools">
+          <button
+            class="icon-button sound-toggle"
+            id="soundToggle"
+            type="button"
+            aria-label="播放背景音乐"
+            aria-pressed="false"
+            title="播放背景音乐"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11 5 6 9H2v6h4l5 4z" />
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="story" id="story">
+        <section
+          class="scene scene-intro is-active"
+          data-scene="0"
+          data-name="开场"
+          aria-labelledby="introTitle"
+        >
+          <div class="intro-orbit" aria-hidden="true">
+            <span class="orbit-line"></span>
+            <span class="orbit-dot"></span>
+          </div>
+          <div class="scene-inner intro-inner">
+            <p class="eyebrow reveal">
+              TO MY DEAREST FRIEND · <span id="introName">高钰轩</span>
+            </p>
+            <h1 class="display-title reveal" id="introTitle">
+              <span id="introDate">11.24</span><br />
+              <em><span id="introAge">22</span>岁生日快乐</em>
+            </h1>
+            <p class="intro-copy reveal">
+              致我最亲爱的闺蜜，<br class="mobile-only" />愿新一岁的你，自由、尽兴、被爱包围。
+            </p>
+            <button class="primary-action reveal" type="button" data-next>
+              <span>打开高钰轩的生日信</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          <p class="intro-note">有一片星空，只为高钰轩亮起。</p>
+        </section>
+
+        <section
+          class="scene scene-wishes"
+          data-scene="1"
+          data-name="星语"
+          aria-labelledby="wishesTitle"
+        >
+          <div class="scene-inner wishes-inner">
+            <div class="section-heading">
+              <p class="eyebrow reveal">THE STARS HAVE SOMETHING TO SAY</p>
+              <h2 class="section-title reveal" id="wishesTitle">拾起一颗星，拆开一句话。</h2>
+              <p class="section-copy reveal">有些祝福，要由你亲手点亮。</p>
+            </div>
+            <div class="wish-orbit reveal" id="wishOrbit" aria-label="二十二颗祝福星"></div>
+            <p class="wish-progress" id="wishProgress" aria-live="polite">已拾起 0 / 22</p>
+          </div>
+        </section>
+
+        <section
+          class="scene scene-memories"
+          data-scene="2"
+          data-name="回忆"
+          aria-labelledby="memoriesTitle"
+        >
+          <div class="scene-inner memories-inner">
+            <div class="section-heading memories-heading">
+              <p class="eyebrow reveal">OUR LITTLE ARCHIVE</p>
+              <h2 class="section-title reveal" id="memoriesTitle">我心目中的你。</h2>
+              <p class="section-copy reveal">把那些没舍得删的照片，贴成一面属于我们的照片墙。</p>
+            </div>
+            <div
+              class="photo-wall"
+              id="photoWall"
+              aria-label="我们的拍立得照片墙"
+            ></div>
+          </div>
+        </section>
+
+        <section
+          class="scene scene-cake"
+          data-scene="3"
+          data-name="愿望"
+          aria-labelledby="cakeTitle"
+        >
+          <div class="scene-inner cake-inner">
+            <div class="section-heading cake-heading">
+              <p class="eyebrow reveal">MAKE A WISH</p>
+              <h2 class="section-title reveal" id="cakeTitle">
+                今天，当然要认真许一个愿。
+              </h2>
+              <p class="section-copy reveal" id="cakeStatus">
+                先闭上眼睛，再轻轻吹灭 22 根蜡烛。
+              </p>
+            </div>
+
+            <div class="cake-stage reveal">
+              <div
+                class="candles"
+                id="candles"
+                data-count="22"
+                aria-label="二十二根生日蜡烛"
+              ></div>
+              <div class="cake-glow" aria-hidden="true"></div>
+              <div class="cake" aria-hidden="true">
+                <span class="cake-top cake-top-one"></span>
+                <span class="cake-tier cake-tier-one"></span>
+                <span class="cake-top cake-top-two"></span>
+                <span class="cake-tier cake-tier-two"></span>
+                <span class="cake-top cake-top-three"></span>
+                <span class="cake-tier cake-tier-three"></span>
+                <span class="cake-plate"></span>
+              </div>
+              <button class="subtle-action" id="blowButton" type="button">
+                <span>轻轻吹一口气</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 12h12" />
+                  <path d="m12 8 4 4-4 4" />
+                  <path d="M20 8v8" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="wish-reveal" id="wishReveal" aria-live="polite">
+              <span class="wish-reveal-star" aria-hidden="true">✦</span>
+              <p>闭上眼睛</p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="scene scene-today"
+          data-scene="4"
+          data-name="今天"
+          aria-labelledby="todayTitle"
+        >
+          <div class="scene-inner today-inner">
+            <p class="eyebrow reveal">THIS DAY BELONGS TO YOU</p>
+            <h2 class="today-word reveal" id="todayTitle" aria-label="今天">TODAY</h2>
+            <p class="today-copy reveal">
+              <span id="todayName">高钰轩</span>，<span id="todayAge">22</span>岁生日快乐。
+            </p>
+            <p class="today-date reveal" id="todayDateLabel">11.24 · 22 岁 · 宜被偏爱</p>
+          </div>
+        </section>
+
+        <section
+          class="scene scene-finale"
+          data-scene="5"
+          data-name="结尾"
+          aria-labelledby="finaleTitle"
+        >
+          <div class="scene-inner finale-inner">
+            <p class="eyebrow reveal">THE STORY CONTINUES</p>
+            <h2 class="finale-name reveal" id="finaleTitle">
+              <span id="finaleTo">高钰轩</span>
+            </h2>
+            <p class="finale-birthday reveal">
+              <span id="finaleAge">22</span>岁生日快乐。
+            </p>
+            <div class="finale-copy reveal">
+              <p>故事会继续，</p>
+              <p>祝福不会。</p>
+            </div>
+            <p class="finale-sign reveal" id="finaleFrom">来自 · zhanghappy</p>
+            <button class="text-button reveal" id="replayButton" type="button">
+              再看一遍
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7" />
+                <path d="M3 4v5h5" />
+              </svg>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="experience-nav" data-scene="0">
+        <div class="nav-status">
+          <button class="nav-arrow" id="prevButton" type="button" aria-label="上一页">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <span class="scene-number">
+            <b id="currentScene">01</b> / <span id="sceneTotal">06</span>
+          </span>
+        </div>
+        <div class="progress-dots" id="progressDots" role="tablist" aria-label="章节导航"></div>
+        <button class="next-button" id="nextButton" type="button">
+          <span>继续</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </button>
+      </footer>
+    </div>
+
+    <dialog class="wish-dialog" id="wishDialog" aria-labelledby="wishDialogTitle">
+      <button class="dialog-close" id="wishDialogClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+      <div class="wish-paper">
+        <p class="paper-index" id="wishDialogTitle">01 / 12</p>
+        <span class="paper-line" aria-hidden="true"></span>
+        <p class="paper-message" id="wishDialogText"></p>
+        <p class="paper-sign">· 给你的小小祝福</p>
+      </div>
+    </dialog>
+
+    <dialog class="photo-dialog" id="photoDialog" aria-labelledby="photoDialogCaption">
+      <button
+        class="dialog-close photo-dialog-close"
+        id="photoDialogClose"
+        type="button"
+        aria-label="关闭照片"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+      <div class="photo-dialog-paper">
+        <img id="photoDialogImage" src="" alt="" />
+        <p id="photoDialogCaption"></p>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <p class="sr-only" id="liveRegion" aria-live="polite"></p>
+
+    <noscript>
+      <p class="noscript-message">请开启 JavaScript，才能拆开这封星空生日信。</p>
+    </noscript>
+
+    <audio id="bgm" src="assets/berry-bgm.mp3" loop preload="auto"></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
